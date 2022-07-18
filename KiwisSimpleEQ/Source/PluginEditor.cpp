@@ -9,6 +9,64 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+
+void LookAndFeel::drawRotarySlider(juce::Graphics & g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, juce::Slider & slider)
+{
+    using namespace juce;
+    
+    auto bounds = Rectangle<float>(x, y, width, height);
+//    Farbe Knöpfe Füllung
+    g.setColour(Colour(234u, 223u, 77u));
+    g.fillEllipse(bounds);
+//    Farbe Knöpfe Rand
+    g.setColour(Colour(232u, 84u, 93u));
+    g.drawEllipse(bounds, 1.f);
+    
+    auto center = bounds.getCentre();
+    
+    Path p;
+    
+    Rectangle<float> r;
+    r.setLeft(center.getX() - 2);
+    r.setRight(center.getX() + 2);
+    r.setTop(bounds.getY());
+    r.setBottom(center.getY());
+    
+    p.addRectangle(r);
+    
+    jassert(rotaryStartAngle < rotaryEndAngle);
+    
+    auto sliderAngRad = jmap(sliderPosProportional, 0.f, 1.f, rotaryStartAngle, rotaryEndAngle);
+    
+    p.applyTransform(AffineTransform().rotated(sliderAngRad, center.getX(), center.getY()));
+    
+    g.fillPath(p);
+}
+//==============================================================================
+
+void RotarySliderWithLabels::paint(juce::Graphics &g)
+{
+    using namespace juce;
+    
+    auto startAng = degreesToRadians(180.f + 45.f);
+    auto endAng = degreesToRadians(180.f - 45.f) +  MathConstants<float>::twoPi;
+    
+    
+    auto range = getRange();
+    
+    auto sliderBounds = getSliderBounds();
+    
+    getLookAndFeel().drawRotarySlider(g, sliderBounds.getX(), sliderBounds.getY(), sliderBounds.getWidth(), sliderBounds.getHeight(), jmap(getValue(), range.getStart(), range.getEnd(), 0.0, 1.0),startAng, endAng, *this);
+    
+}
+
+juce::Rectangle<int> RotarySliderWithLabels::getSliderBounds() const
+{
+    return getLocalBounds();
+}
+
+
+//==============================================================================
 ResponseCurveComponent::ResponseCurveComponent(KiwisSimpleEQAudioProcessor& p) : audioProcessor(p)
 {
     const auto& params = audioProcessor.getParameters();
@@ -123,6 +181,30 @@ void ResponseCurveComponent::paint (juce::Graphics& g)
     
     g.setColour(Colours::white);
     g.strokePath(responseCurve, PathStrokeType(2.f));
+}
+
+void ResponseCurveComponent::resized()
+{
+    using namespace juce;
+    background = Image(Image::PixelFormat::RGB, getWidth(), getHeight(), true);
+    
+    Graphics g(background);
+    
+    Array<float> freqs
+    {
+        20, 30, 40, 50, 100,
+        200, 300, 400, 500, 1000,
+        2000, 4000, 5000, 10000,
+        20000
+    };
+    
+    g.setColour(Colours::white);
+    for (auto f : freqs)
+    {
+        auto normX = mapFromLog10(f, 20.f, 200000.f);
+        
+        drawVerticalLine(getWidth() * normX, 0.f, getHeight());
+    }
 }
 //==============================================================================
 KiwisSimpleEQAudioProcessorEditor::KiwisSimpleEQAudioProcessorEditor (KiwisSimpleEQAudioProcessor& p)
