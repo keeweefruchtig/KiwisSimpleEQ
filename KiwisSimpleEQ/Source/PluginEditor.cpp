@@ -67,13 +67,18 @@ juce::Rectangle<int> RotarySliderWithLabels::getSliderBounds() const
 
 
 //==============================================================================
-ResponseCurveComponent::ResponseCurveComponent(KiwisSimpleEQAudioProcessor& p) : audioProcessor(p)
+ResponseCurveComponent::ResponseCurveComponent(KiwisSimpleEQAudioProcessor& p) : audioProcessor(p),
+leftChannelFifo(&audioProcessor.leftChannelFifo)
 {
     const auto& params = audioProcessor.getParameters();
     for ( auto param : params )
     {
         param->addListener(this);
     }
+    
+    
+    
+    updateChain();
     
     startTimerHz(60);
 }
@@ -94,10 +99,35 @@ void ResponseCurveComponent::parameterValueChanged(int parameterIndex, float new
 
 void ResponseCurveComponent::timerCallback()
 {
-    if ( parametersChanged.compareAndSetBool(false, true) )
+    juce::AudioBuffer<float> tempIncomingBuffer;
+    
+    while (leftChannelFifo->getNumCompleteBuffersAvailable() > 0)
+    {
+        if (leftChannelFifo->getAudioBuffer(tempIncomingBuffer) )
+        {
+            auto size = tempIncomingBuffer.getNumSamples();
+//            juce::FloatVectorOperations::copy(monoBuffer.getWritePointer(0, 0),
+//                                              monoBuffer.getReadPointer(0, size),
+//                                              monoBuffer.getNumSamples() - size);
+//            
+//            juce::FloatVectorOperations::copy(monoBuffer.getWritePointer(0, monoBuffer.getNumSamples() - size),
+//                                              tempIncomingBuffer.getReadPointer(0, 0),
+//                                              size);
+        }
+    }
+    
+    if( parametersChanged.compareAndSetBool(false, true) )
     {
         DBG( "params changed" );
-        //update the Monochain
+        //update the monochain
+        updateChain();
+        //signal a repaint
+        repaint();
+    }
+}
+void ResponseCurveComponent::updateChain()
+{
+
         auto chainSettings = getChainSettings(audioProcessor.apvts);
         auto peakCoefficients = makePeakFilter(chainSettings, audioProcessor.getSampleRate());
         updateCoefficients(monoChain.get<ChainPositions::Peak>().coefficients, peakCoefficients);
@@ -107,10 +137,9 @@ void ResponseCurveComponent::timerCallback()
         
         updateCutFilter(monoChain.get<ChainPositions::LowCut>(), lowCutCoefficients, chainSettings.lowCutSlope);
         updateCutFilter(monoChain.get<ChainPositions::HighCut>(), highCutCoefficients, chainSettings.highCutSlope);
-        //signal a repaint
-        repaint();
+
     }
-}
+
 void ResponseCurveComponent::paint (juce::Graphics& g)
 {
     using namespace juce;
