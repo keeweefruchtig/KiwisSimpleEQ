@@ -13,7 +13,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 81f14fb (Added Basic Slider Visuals)
 =======
 >>>>>>> parent of 81f14fb (Added Basic Slider Visuals)
 struct LookAndFeel : juce::LookAndFeel_V4
