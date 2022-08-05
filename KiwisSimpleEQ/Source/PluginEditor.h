@@ -48,6 +48,7 @@ private:
     juce::RangedAudioParameter* param;
     juce::String suffix;
 };
+<<<<<<< HEAD
 
 struct ResponseCurveComponent: juce::Component,
 juce::AudioProcessorParameter::Listener,
@@ -73,10 +74,14 @@ private:
     MonoChain monoChain;
 };
 
+=======
+>>>>>>> parent of 9031c25 (Created ResponseCurve Component)
 //==============================================================================
 /**
 */
-class KiwisSimpleEQAudioProcessorEditor  : public juce::AudioProcessorEditor
+class KiwisSimpleEQAudioProcessorEditor  : public juce::AudioProcessorEditor,
+juce::AudioProcessorParameter::Listener,
+juce::Timer
 
 {
 public:
@@ -87,12 +92,18 @@ public:
     void paint (juce::Graphics&) override;
     void resized() override;
 
+    void parameterValueChanged (int parameterIndex, float newValue) override;
+    
+    void parameterGestureChanged (int parameterIndex, bool gestureIsStarting) override { }
+    
+    void timerCallback() override;
     
 private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     KiwisSimpleEQAudioProcessor& audioProcessor;
     
+    juce::Atomic<bool> parametersChanged { false };
 
     RotarySliderWithLabels peakFreqSlider,
     peakGainSlider,
@@ -101,7 +112,6 @@ private:
     highCutFreqSlider,
     lowCutSlopeSlider,
     highCutSlopeSlider;
-    ResponseCurveComponent responseCurveComponent;
     
     using APVTS = juce::AudioProcessorValueTreeState;
     using Attachment = APVTS::SliderAttachment;
@@ -117,6 +127,7 @@ private:
     
     std::vector<juce::Component*> getComps();
     
+    MonoChain monoChain;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (KiwisSimpleEQAudioProcessorEditor)
 };
