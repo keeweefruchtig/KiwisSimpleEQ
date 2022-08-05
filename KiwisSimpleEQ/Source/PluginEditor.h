@@ -11,6 +11,7 @@
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
 
+<<<<<<< HEAD
 
 struct LookAndFeel : juce::LookAndFeel_V4
 {
@@ -28,9 +29,15 @@ struct RotarySliderWithLabels : juce::Slider
     RotarySliderWithLabels(juce::RangedAudioParameter& rap, const juce::String& unitSuffix) : juce::Slider(juce::Slider::SliderStyle::RotaryHorizontalVerticalDrag,juce::Slider::TextEntryBoxPosition::NoTextBox),
     param(&rap),
     suffix(unitSuffix)
+=======
+struct CustomRotarySlider : juce::Slider
+{
+    CustomRotarySlider() : juce::Slider(juce::Slider::SliderStyle::RotaryHorizontalVerticalDrag,juce::Slider::TextEntryBoxPosition::NoTextBox)
+>>>>>>> parent of 900f68a (Implementation of custom slider visuals)
     {
-        setLookAndFeel(&lnf);
+        
     }
+<<<<<<< HEAD
     
     ~RotarySliderWithLabels()
     {
@@ -47,6 +54,8 @@ private:
     
     juce::RangedAudioParameter* param;
     juce::String suffix;
+=======
+>>>>>>> parent of 900f68a (Implementation of custom slider visuals)
 };
 <<<<<<< HEAD
 
@@ -105,7 +114,7 @@ private:
     
     juce::Atomic<bool> parametersChanged { false };
 
-    RotarySliderWithLabels peakFreqSlider,
+    CustomRotarySlider peakFreqSlider,
     peakGainSlider,
     peakQualitySlider,
     lowCutFreqSlider,

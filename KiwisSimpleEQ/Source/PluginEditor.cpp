@@ -119,12 +119,16 @@ void KiwisSimpleEQAudioProcessorEditor::paint (juce::Graphics& g)
     g.fillAll (Colours::black);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     auto responseArea = getLocalBounds();
 =======
     auto bounds = getLocalBounds();
     auto responseArea = bounds.removeFromTop(bounds.getHeight() * 0.33);
     
 >>>>>>> parent of 9031c25 (Created ResponseCurve Component)
+=======
+    auto responseArea = getLocalBounds();    
+>>>>>>> parent of 900f68a (Implementation of custom slider visuals)
     auto w = responseArea.getWidth();
     
     auto& lowcut = monoChain.get<ChainPositions::LowCut>();
@@ -217,13 +221,6 @@ void ResponseCurveComponent::resized()
 //==============================================================================
 KiwisSimpleEQAudioProcessorEditor::KiwisSimpleEQAudioProcessorEditor (KiwisSimpleEQAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p),
-peakFreqSlider(*audioProcessor.apvts.getParameter("Peak Freq"), "Hz"),
-peakGainSlider(*audioProcessor.apvts.getParameter("Peak Gain"), "dB"),
-peakQualitySlider(*audioProcessor.apvts.getParameter("Peak Quality"), ""),
-lowCutFreqSlider(*audioProcessor.apvts.getParameter("LowCut Freq"), "Hz"),
-highCutFreqSlider(*audioProcessor.apvts.getParameter("HighCut Freq"), "Hz"),
-lowCutSlopeSlider(*audioProcessor.apvts.getParameter("LowCut Slope"), "dB/Oct"),
-highCutSlopeSlider(*audioProcessor.apvts.getParameter("HighCut Slope"), "dB/Oct"),
 
 responseCurveComponent(audioProcessor),
 peakFreqSliderAttachment(audioProcessor.apvts, "Peak Freq", peakFreqSlider),
