@@ -10,6 +10,7 @@
 #include "PluginEditor.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 void LookAndFeel::drawRotarySlider(juce::Graphics & g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, juce::Slider & slider)
 {
@@ -68,6 +69,8 @@ juce::Rectangle<int> RotarySliderWithLabels::getSliderBounds() const
 
 
 //==============================================================================
+=======
+>>>>>>> parent of 81f14fb (Added Basic Slider Visuals)
 ResponseCurveComponent::ResponseCurveComponent(KiwisSimpleEQAudioProcessor& p) : audioProcessor(p)
 =======
 //==============================================================================
@@ -194,6 +197,7 @@ void KiwisSimpleEQAudioProcessorEditor::paint (juce::Graphics& g)
     g.strokePath(responseCurve, PathStrokeType(2.f));
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 void ResponseCurveComponent::resized()
 {
@@ -218,6 +222,8 @@ void ResponseCurveComponent::resized()
         drawVerticalLine(getWidth() * normX, 0.f, getHeight());
     }
 }
+=======
+>>>>>>> parent of 81f14fb (Added Basic Slider Visuals)
 //==============================================================================
 KiwisSimpleEQAudioProcessorEditor::KiwisSimpleEQAudioProcessorEditor (KiwisSimpleEQAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p),

@@ -12,7 +12,10 @@
 #include "PluginProcessor.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 81f14fb (Added Basic Slider Visuals)
 struct LookAndFeel : juce::LookAndFeel_V4
 {
     void drawRotarySlider (juce::Graphics&,
@@ -20,7 +23,7 @@ struct LookAndFeel : juce::LookAndFeel_V4
                                    float sliderPosProportional,
                                    float rotaryStartAngle,
                                    float rotaryEndAngle,
-                           juce::Slider&) override;
+                           juce::Slider&) override { }
 };
 
 
@@ -44,7 +47,7 @@ struct CustomRotarySlider : juce::Slider
         setLookAndFeel(nullptr);
     }
     
-    void paint(juce::Graphics& g) override;
+    void paint(juce::Graphics& g) override { }
     juce::Rectangle<int> getSliderBounds() const;
     int getTextHeight() const { return 14; }
     juce::String getDisplayString() const;
@@ -74,7 +77,6 @@ juce::Timer
     void timerCallback() override;
     
     void paint(juce::Graphics& g) override;
-    void resized() override;
     
 private:
     KiwisSimpleEQAudioProcessor& audioProcessor;
