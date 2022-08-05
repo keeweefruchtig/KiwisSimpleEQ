@@ -14,6 +14,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 enum FFTOrder
 {
     order2048 = 11,
@@ -85,6 +86,8 @@ private:
 };
 
 
+=======
+>>>>>>> parent of 1ec4170 (Added Basic Slider Visuals)
 =======
 >>>>>>> parent of 1ec4170 (Added Basic Slider Visuals)
 =======
