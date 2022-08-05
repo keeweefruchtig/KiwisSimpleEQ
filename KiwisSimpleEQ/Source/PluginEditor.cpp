@@ -11,6 +11,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 void LookAndFeel::drawRotarySlider(juce::Graphics & g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, juce::Slider & slider)
 {
@@ -72,6 +73,8 @@ juce::Rectangle<int> RotarySliderWithLabels::getSliderBounds() const
 ResponseCurveComponent::ResponseCurveComponent(KiwisSimpleEQAudioProcessor& p) : audioProcessor(p),
 leftChannelFifo(&audioProcessor.leftChannelFifo)
 =======
+=======
+>>>>>>> parent of 1ec4170 (Added Basic Slider Visuals)
 =======
 >>>>>>> parent of 1ec4170 (Added Basic Slider Visuals)
 ResponseCurveComponent::ResponseCurveComponent(KiwisSimpleEQAudioProcessor& p) : audioProcessor(p)
