@@ -9,16 +9,23 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
 void LookAndFeel::drawRotarySlider(juce::Graphics & g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, juce::Slider & slider)
+=======
+
+
+void LookAndFeel::drawRotarySlider(juce::Graphics & g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, juce::Slider &)
+>>>>>>> Stashed changes
 {
     using namespace juce;
     
     auto bounds = Rectangle<float>(x, y, width, height);
+<<<<<<< Updated upstream
 //    Farbe Knöpfe Füllung
     g.setColour(Colour(234u, 223u, 77u));
     g.fillEllipse(bounds);
@@ -55,13 +62,41 @@ void RotarySliderWithLabels::paint(juce::Graphics &g)
     auto startAng = degreesToRadians(180.f + 45.f);
     auto endAng = degreesToRadians(180.f - 45.f) +  MathConstants<float>::twoPi;
     
+=======
+    
+    g.setColour(Colour(105u, 174u, 200u));
+    g.fillEllipse(bounds);
+    
+    g.setColour(Colour(143u, 238u, 112u));
+    g.drawEllipse(bounds, 1.f);
+    
+}
+//=============================
+void RotarySliderWithLabels::paint(juce::Graphics &g)
+{
+    using namespace juce;
+    auto startAng = degreesToRadians(180.f + 45.f);
+    auto endAng = degreesToRadians(180.f - 45.f) + MathConstants<float>::twoPi;
+>>>>>>> Stashed changes
     
     auto range = getRange();
     
     auto sliderBounds = getSliderBounds();
     
+<<<<<<< Updated upstream
     getLookAndFeel().drawRotarySlider(g, sliderBounds.getX(), sliderBounds.getY(), sliderBounds.getWidth(), sliderBounds.getHeight(), jmap(getValue(), range.getStart(), range.getEnd(), 0.0, 1.0),startAng, endAng, *this);
     
+=======
+    getLookAndFeel().drawRotarySlider(g,
+                                      sliderBounds.getX(),
+                                      sliderBounds.getY(),
+                                      sliderBounds.getWidth(),
+                                      sliderBounds.getHeight(),
+                                      jmap(getValue(), range.getStart(), range.getEnd(), 0.0, 1.0),
+                                      startAng,
+                                      endAng,
+                                      *this);
+>>>>>>> Stashed changes
 }
 
 juce::Rectangle<int> RotarySliderWithLabels::getSliderBounds() const
@@ -69,6 +104,7 @@ juce::Rectangle<int> RotarySliderWithLabels::getSliderBounds() const
     return getLocalBounds();
 }
 
+<<<<<<< Updated upstream
 
 //==============================================================================
 ResponseCurveComponent::ResponseCurveComponent(KiwisSimpleEQAudioProcessor& p) : audioProcessor(p),
@@ -80,6 +116,10 @@ leftChannelFifo(&audioProcessor.leftChannelFifo)
 >>>>>>> parent of 1ec4170 (Added Basic Slider Visuals)
 =======
 >>>>>>> parent of 1ec4170 (Added Basic Slider Visuals)
+=======
+//=========================
+
+>>>>>>> Stashed changes
 ResponseCurveComponent::ResponseCurveComponent(KiwisSimpleEQAudioProcessor& p) : audioProcessor(p)
 >>>>>>> parent of 1ec4170 (Added Basic Slider Visuals)
 {
