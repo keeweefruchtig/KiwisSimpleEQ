@@ -61,6 +61,7 @@ struct Fifo
         }
         return false;
     }
+    
     int getNumAvailableForReading() const
     {
         return fifo.getNumReady();

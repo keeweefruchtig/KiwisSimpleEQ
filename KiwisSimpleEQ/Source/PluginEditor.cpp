@@ -356,7 +356,7 @@ void ResponseCurveComponent::paint (juce::Graphics& g)
     }
     
     g.setColour(Colours::blueviolet);
-    g.strokePath(leftChannelFFTPath, PathStrokeType(1.f));
+    g.strokePath(leftChannelFFTPath, PathStrokeType(2.f));
     
     g.setColour(Colours::orange);
     g.drawRoundedRectangle(getRenderArea().toFloat(), 4.f, 1.f);
