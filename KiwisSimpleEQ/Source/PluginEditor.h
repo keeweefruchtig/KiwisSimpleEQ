@@ -124,7 +124,7 @@ struct AnalyzerPathGenerator
             
             if ( !std::isnan(y) && !std::isinf(y) )
             {
-                auto binFreq = binWidth;
+                auto binFreq = binNum * binWidth;
                 auto normalizedBinX = juce::mapFromLog10(binFreq, 1.f, 20000.f);
                 int binX = std::floor(normalizedBinX * width);
                 p.lineTo(binX, y);
