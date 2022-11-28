@@ -112,6 +112,12 @@ void KiwisSimpleEQAudioProcessor::prepareToPlay (double sampleRate, int samplesP
     
     leftChannelFifo.prepare(samplesPerBlock);
     rightChannelFifo.prepare(samplesPerBlock);
+    
+    osc.initialise([](float x) { return std::sin(x); });
+    
+    spec.numChannels = getTotalNumOutputChannels();
+    osc.prepare(spec);
+    osc.setFrequency(1000);
 }
 
 void KiwisSimpleEQAudioProcessor::releaseResources()
@@ -166,6 +172,11 @@ void KiwisSimpleEQAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer
     
     
     juce::dsp::AudioBlock<float> block(buffer);
+    
+   // buffer.clear();
+    
+   // juce::dsp::ProcessContextReplacing<float> stereoContext(block);
+   // osc.process(stereoContext);
     
     auto LeftBlock = block.getSingleChannelBlock(0);
     auto RightBlock = block.getSingleChannelBlock(1);
