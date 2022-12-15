@@ -278,6 +278,7 @@ private:
     highCutFreqSlider,
     lowCutSlopeSlider,
     highCutSlopeSlider;
+    
     ResponseCurveComponent responseCurveComponent;
     
     using APVTS = juce::AudioProcessorValueTreeState;
@@ -298,6 +299,8 @@ private:
                         peakBypassButtonAttachment,
                         highcutBypassButtonAttachment,
                         analyzerEnabledButtonAttachment;
+    
+    
     
     std::vector<juce::Component*> getComps();
     
