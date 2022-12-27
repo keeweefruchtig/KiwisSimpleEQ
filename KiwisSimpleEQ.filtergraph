@@ -61,12 +61,13 @@
       </OUTPUTS>
     </LAYOUT>
   </FILTER>
-  <FILTER uid="5" x="0.17875" y="0.5173076923076924">
+  <FILTER uid="5" x="0.178" y="0.51875" uiLastX_Normal="242" uiLastY_Normal="305"
+          uiopen_Normal="1">
     <PLUGIN name="KiwisSimpleEQ" format="AudioUnit" category="Effect" manufacturer="yourcompany"
             version="1.0.0" file="AudioUnit:Effects/aufx,Whad,Manu" uniqueId="7b7c6969"
-            isInstrument="0" fileTime="0" infoUpdateTime="181b670a0a6" numInputs="2"
+            isInstrument="0" fileTime="0" infoUpdateTime="1852b0b4778" numInputs="2"
             numOutputs="2" isShell="0" uid="7b7c6969"/>
-    <STATE>261.hAGaoMGcv.y0AHv.DTfAGfPBJHwDTTAWsEla0YVXiQWcxUlbTQVXzEFWkwVYsUlaz0hag0VYWMWchQWdvU1U1Ulbyk1atQEc4AWYT4VXsUlDMEla08DDDA..............GPA7cmQOUbpUTDuDf7C....LK1hB.....PyVp4aO55BidUgZKB....PXOFQV.....X1Fki4O.B..Ru.CM.QTwDkLQ6vCQASUI4Fb0QWzNDgUOUGcvUGcRbEZgQFD.HQX0YFdXUkazkFcrUFYHbAIoXiOFsDTUwYniVJppB6r59avFC.......DP..........XA...................vy</STATE>
+    <STATE>859.hAGaoMGcv.C1AHv.DTfAGfPBJrvDTTgEWvUag4VclE1XzUmbkIGUjEFcgwUYrUVak4Fcs3VXsU1UyUmXzkGbkckckI2bo8laTQWdvU1WP7fZ0MVYPwVcmklaSQWXzUFUtEVakIQSg4VcOAAY..............vBT.e2Y3y2XeNEwKAH+....zxdsgJ.....vrXKJ......Maolu8nqKLFTHwG7O.B..RoYWY.....fWUn1h.....D1iQjE.....lsQ4X9Cf...Zf6wo.....HMCM3PDQESTxD8CPDELUkjavUGcQ+fDV8TczAWczIwUnEFYP.fDgUmY38TDBP.TgIWXsUFckI2b..P.K.UPRETS.Df.oQF.ALQAA4VXrkmdkIGHBkGbgM2bkQF.1EFa0UF.Aj.A........v+C.PEjTA0D.AHPZjAP.RT.RocFZCUGcfHTdvE1byUFY.XWXrUWY.DPBD.............UPRETS.Df.oQF.A3PAHk1YnMTczAhQxUVb.XWXrUWY.DPBD.......HNMP..UPRETS.Df.oQF.A7PAHk1YnMTczAxTr8FbkAfcgwVckAP.IP.............TAIUPMAP.BjFY.DPDEvza2MTczAhP4AWXyMWYjAfcgwVckAP.IP.............TAIUPMAP.BjFY.DPCEvza2MTczAhQxUVb.XWXrUWY.DPBD........LFP..UPRETS.Df.oQF.A3PAL81cCUGcfLEauAWY.XWXrUWY.DPBD.............UPRETS.Df.oQF.A7PAPUVXqAhP4AWXyMWYjAfcgwVckAP.IP.............TAIUPMAP.BjFY.DvBE.UYgsFHFIWYwAfcgwVckAP.IP........2g.A.TAIUPMAP.BjFY.DvBE.UYgsFHGEVZtAfcgwVckAP.IP........fI.A.TAIUPMAP.BjFY.DfCE.UYgsFHQUWXrkFc4AfcgwVckAP.IP.........7+..VU4FcoQGakQF.H.PF.XB.q..N..D.HAPS.7E.jAPZ..M.UCv0.jM.bCf2.PN.mCf6.LO.0Cf9CH........f.A..........F..................v.K.</STATE>
     <LAYOUT>
       <INPUTS>
         <BUS index="0" layout="L R"/>
@@ -80,7 +81,7 @@
           uiLastY_Normal="97" uiopen_Normal="1">
     <PLUGIN name="AUAudioFilePlayer" format="AudioUnit" category="Generator"
             manufacturer="Apple" version="1.6.0" file="AudioUnit:Generators/augn,afpl,appl"
-            uniqueId="6163676e" isInstrument="0" fileTime="0" infoUpdateTime="181b670a0a7"
+            uniqueId="6163676e" isInstrument="0" fileTime="0" infoUpdateTime="1852b0b477c"
             numInputs="0" numOutputs="2" isShell="0" uid="6163676e"/>
     <STATE>583.hAGaoMGcv.C1AHv.DTfAGfPBJr.Gc3wGgvUag4VclE1XzUmbkIGUjEFcg8EDarVPUAkbkMWYzAUYxMWZyQWYtQ2TzEFcksTY4c0b0IFc4AWYWYWYxMWZu4FUzkGbk8EDOXVZrUVKxUlYkIWYtMVYyQkag0VYRDFbvwFPgxvzM3vCPDQFXYTZrUlSg0VYWIUYmk1atMmWIM2TkwVYiQWYjYTZrU1WPj0KUMWYxM2KpElak0VZrQ1asklaoE1ZuPzaiUWak4Fcy8RSAMEUEIURNcDHurTQEcUQE8RLzXCHhAWafPVao4FHyUFZxABcxkFbvkGHgIVYxAxXu8FatbWX1EpDTOAEUXwEXjgFdIUYmk1atQzakMGSu8FbZIUYmk1atQTXzE1WP.QRyMUYrU1XzUFYRU1Yo8laZIUYmk1at4TXsUFBOAAb..............fv......................13FED...........7CPH......TMURLg....P.................................................fOHv............jeE...9b.kfVNU1cfHUYmk1atkfDgYFbrAA.RDVcm4Vzf.gUFkFakARLXUkazkFcrUFY.f..Y.fI.rB.IAPT.jE.dA.b.TG.5Avd.zG.DBPi.TI.jF..AHP.KDfFATR.3DvPAPT.2F.tALb.DGPxArb.PGvzAnM.......f.A.........fH..................P.iC</STATE>
     <LAYOUT>
